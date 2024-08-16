@@ -6,22 +6,24 @@
 
 {% block main %}
 
-    {# Este div sólo está agregado para centrar el formulario en la página usando Bootstrap #}
-    <div class="d-flex justify-content-center">
+{# Este div sólo está agregado para centrar el formulario en la página usando Bootstrap #}
+<div class="d-flex justify-content-center">
 
-        {# Con este div colocamos el título y debajo el formulario usando Bootstrap #}
-        <div class="d-flex flex-column">
+    {# Con este div colocamos el título y debajo el formulario usando Bootstrap #}
+    <div class="d-flex flex-column">
 
-            <form action="" method="POST">
-                {% csrf_token %}
-                <table>
-                {{ form}}
-                </table>
-                <input type="submit" value="Actualizar">
+        <form class="p-3 p-lg-4" action="" method="POST">
+            {% csrf_token %}
+            <table class="table table-borderless col fst">
+                {{ form }}
+            </table>
+            <div class="py-3 py-lg-4 d-grid">
+                <input class="btn btn-outline-dark" type="submit" value="Actualizar">
+            </div>
 
-            </form>
+        </form>
 
-        </div>
     </div>
+</div>
 
 {% endblock main %}

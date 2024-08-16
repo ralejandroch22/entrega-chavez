@@ -6,23 +6,26 @@
 
 {% block main %}
 
-    {# Este div sólo está agregado para centrar el formulario en la página usando Bootstrap #}
-    <div class="d-flex justify-content-center">
+{# Este div sólo está agregado para centrar el formulario en la página usando Bootstrap #}
+<div class="d-flex justify-content-lg-center">
 
-        {# Con este div colocamos el título y debajo el formulario usando Bootstrap #}
-        <div class="d-flex flex-column">
+    {# Con este div colocamos el título y debajo el formulario usando Bootstrap #}
+    <div class="d-flex flex-column">
 
-            {# Mensaje personalizado en la vista de Login con estilos de Bootstrap #}
-            <p class="fs-5 fw-bold">{{ msg_register }}</p>
+        {# Mensaje personalizado en la vista de Login con estilos de Bootstrap #}
+        <p class="fs-5 fw-bold">{{ msg_register }}</p>
 
-            <form action="" method="POST">
-                {% csrf_token %}
-                
-                {{ form.as_p }}
-                <input type="submit" value="Registrarse">
+        <form class="p-3 p-lg-4" action="" method="POST">
+            {% csrf_token %}
+            <table class="table table-borderless col fst">
+                {{ form.as_table }}
+            </table>
+            <div class="py-3 py-lg-4 d-grid gap-2">
+                <input class="btn btn-outline-dark" type="submit" value="Registrarse">
 
-            </form>
+            </div>
 
-        </div>
+        </form>
     </div>
+</div>
 {% endblock main %}

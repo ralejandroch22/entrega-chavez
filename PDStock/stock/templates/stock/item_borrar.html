@@ -1,0 +1,31 @@
+{% extends 'stock/base.html' %}
+
+{% load static %}
+
+
+{% block title %}
+    Eliminar
+{% endblock title %}
+    
+
+{% block main %}
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5">
+                <form action="" method="POST">
+                {% csrf_token %}
+                    <p>Desea eliminar el item: {{item.marca}} {{item.nombre}}</p>
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">            
+                        <input type="submit" value="Borrar" class="btn btn-outline-dark mt-auto">
+                        <a class="btn btn-outline-dark mt-auto" href="{% url 'ListarItem' %}">Volver</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock main %}
+    

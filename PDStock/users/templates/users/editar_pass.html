@@ -1,0 +1,27 @@
+{% extends 'stock/base.html' %}
+
+{% load static %}
+
+{% block title %} Editar Contraseña {% endblock title %}
+
+{% block main %}
+
+    {# Este div sólo está agregado para centrar el formulario en la página usando Bootstrap #}
+    <div class="d-flex justify-content-center">
+
+        {# Con este div colocamos el título y debajo el formulario usando Bootstrap #}
+        <div class="d-flex flex-column">
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                <table>
+                {{ form}}
+                </table>
+                <input type="submit" value="Actualizar">
+
+            </form>
+
+        </div>
+    </div>
+
+{% endblock main %}

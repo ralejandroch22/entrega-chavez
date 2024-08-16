@@ -72,7 +72,7 @@ def editar_perfil(request):
             return render(request, "stock/index.html")
     else:
 
-        miFormulario = UserEditForm(instance=request.user)
+        miFormulario = UserEditForm(initial = {'imagen': usuario.avatar.imagen},instance=request.user)
 
     return render(request, "users/editar_perfil.html", {"form": miFormulario, "usuario": usuario })
 

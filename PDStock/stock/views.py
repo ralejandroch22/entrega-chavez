@@ -8,10 +8,16 @@ from django.contrib.auth.decorators import login_required
 
 from stock.models import Item
 from stock.forms import BuscaItemForm
-# Create your views here.
+
+
+# Vista basada en funciones
 
 def inicio(request):
     return render(request, "stock/index.html")
+
+@login_required
+def about(request):
+    return render(request, "stock/about.html")
 
 @login_required
 def busca_item(request):
@@ -30,10 +36,16 @@ def busca_item(request):
 
     return render(request, "stock/item_buscar.html", {"miFormulario": miFormulario})
 
+#Vistas basadas en clases
+
 class ItemListView(LoginRequiredMixin, ListView):
     model = Item
     context_object_name = "items"
-    template_name = "stock/listar.html"
+    template_name = "stock/item_listar.html"
+
+class ItemDetailView(LoginRequiredMixin, DetailView):
+    model = Item
+    template_name = "stock/item_detalle.html"
 
 class ItemCreateView(LoginRequiredMixin, CreateView):
     model = Item
@@ -45,7 +57,7 @@ class ItemUpdateView(LoginRequiredMixin, UpdateView):
     model = Item
     template_name = "stock/item_editar.html"
     success_url = reverse_lazy('ListarItem')
-    fields = ['nombre', 'marca', 'precio']
+    fields = ['nombre', 'marca', 'precio','imagen']
 
 class ItemDeleteView(LoginRequiredMixin, DeleteView):
     model = Item

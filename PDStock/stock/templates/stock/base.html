@@ -28,7 +28,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <li class="nav-item"><a class="nav-link active" aria-current="page"
                             href="{% url 'Inicio' %}">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'About' %}">About</a></li>
 
                     {% if request.user.is_authenticated %}
                     <li class="nav-item dropdown">
@@ -51,12 +51,15 @@
                 
                 <div class="dropdown">
                     {% if request.user.is_authenticated %}
-                        {% if request.user.avatar%}
-                        <img src="{{ request.user.avatar.imagen.url}}" alt="" height="40px">
-                        {% endif%}
+                        
 
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
+
+                        {% if request.user.avatar%}
+                            <img src="{{ request.user.avatar.imagen.url}}" alt="" height="35px">
+                        {% endif%}
+
                         {{request.user.username}}
                     </button>
 

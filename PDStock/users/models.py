@@ -9,7 +9,3 @@ class Avatar(models.Model):
 
     def __str__(self):
         return f"Imagen de: {self.user.username}"
-    
-    
-    
-    

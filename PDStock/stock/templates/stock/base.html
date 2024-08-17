@@ -43,9 +43,14 @@
                             {% endif %}
                         </ul>
                     </li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page"
+                        href="{% url 'Vendedores' %}">Vendedores</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page"
+                            href="{% url 'Operadores' %}">Operadores</a></li>
                     {% endif %}
-                    
-                    <li class="nav-item"><a class="nav-link" href="{% url 'About' %}">About</a></li>
+
+                    <li class="nav-item"><a class="nav-link active" aria-current="page"
+                        href="{% url 'About' %}">About</a></li>
 
                 </ul>
 

@@ -15,9 +15,15 @@ from stock.forms import BuscaItemForm
 def inicio(request):
     return render(request, "stock/index.html")
 
-@login_required
+
 def about(request):
     return render(request, "stock/about.html")
+
+def vendedor(request):
+    return render(request, "stock/not_ready.html")
+
+def operador(request):
+    return render(request, "stock/not_ready.html")
 
 @login_required
 def busca_item(request):
